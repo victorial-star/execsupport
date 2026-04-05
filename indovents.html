@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indorama Ventures — Executive Summary | Eastern Drayage</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      color: #1a1a1a;
+      background: #f4f5f7;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 960px;
+      margin: 32px auto;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.10);
+      overflow: hidden;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #003366 0%, #005599 100%);
+      color: #fff;
+      padding: 32px 40px 24px;
+      position: relative;
+    }
+    .header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 3px;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .header .sub {
+      font-size: 14px;
+      opacity: .75;
+      margin-top: 4px;
+    }
+    .header .meta-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.2);
+      flex-wrap: wrap;
+    }
+    .header .meta-item label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: .6;
+      margin-bottom: 3px;
+    }
+    .header .meta-item span {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ── Contact cards ── */
+    .contacts-bar {
+      background: #eef3f8;
+      border-bottom: 1px solid #d4e0ec;
+      padding: 14px 40px;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-card .name { font-weight: 700; font-size: 13px; color: #003366; }
+    .contact-card .title { font-size: 11px; color: #555; margin-top: 1px; }
+    .contact-card .email { font-size: 11px; color: #0066cc; margin-top: 2px; }
+
+    /* ── Body ── */
+    .body { padding: 32px 40px; }
+
+    /* ── Section ── */
+    .section { margin-bottom: 32px; }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #003366;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 5px;
+      margin-bottom: 14px;
+    }
+
+    /* ── Stat grid ── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .stat-box {
+      background: #f0f5fa;
+      border-left: 3px solid #003366;
+      border-radius: 3px;
+      padding: 10px 14px;
+    }
+    .stat-box .stat-label { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+    .stat-box .stat-value { font-size: 18px; font-weight: 700; color: #003366; line-height: 1.2; margin-top: 2px; }
+    .stat-box .stat-note { font-size: 10px; color: #555; margin-top: 2px; }
+
+    /* ── Two-col layout ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* ── Lists ── */
+    ul.bullets { padding-left: 18px; }
+    ul.bullets li { margin-bottom: 5px; line-height: 1.5; }
+    ul.bullets li strong { color: #003366; }
+
+    /* ── Tables ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+    th {
+      background: #003366;
+      color: #fff;
+      text-align: left;
+      padding: 7px 10px;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: .4px;
+    }
+    td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #e8ecf0;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    tr:nth-child(even) td { background: #f7f9fc; }
+    tr:last-child td { border-bottom: none; }
+
+    /* ── Alert / callout boxes ── */
+    .callout {
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      line-height: 1.55;
+    }
+    .callout.green  { background: #e8f6ee; border-left: 4px solid #28a745; }
+    .callout.blue   { background: #e8f0fb; border-left: 4px solid #1a5dc8; }
+    .callout.orange { background: #fff4e5; border-left: 4px solid #e07b00; }
+    .callout.red    { background: #fdf1f1; border-left: 4px solid #cc2a2a; }
+    .callout strong { color: #1a1a1a; }
+
+    /* ── Opportunity table ── */
+    .opp-table th { background: #1a4d8f; }
+    .priority-high   { color: #1a7a3a; font-weight: 700; }
+    .priority-medium { color: #b05e00; font-weight: 700; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #003366;
+      color: rgba(255,255,255,.6);
+      font-size: 10px;
+      text-align: center;
+      padding: 12px 40px;
+      letter-spacing: .3px;
+    }
+    .footer strong { color: #fff; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <div class="header">
+    <div class="badge">Executive Summary — Confidential</div>
+    <h1>Indorama Ventures Public Company Limited</h1>
+    <div class="sub">Global Intermediate Chemicals · PET · Fibers · Specialty Chemicals</div>
+    <div class="meta-row">
+      <div class="meta-item"><label>Meeting Date</label><span>April 9, 2026</span></div>
+      <div class="meta-item"><label>Prepared For</label><span>Harry Hatch, CCO — Eastern Drayage</span></div>
+      <div class="meta-item"><label>Headquarters</label><span>Bangkok, Thailand</span></div>
+      <div class="meta-item"><label>Ticker</label><span>IVL.BK (SET)</span></div>
+      <div class="meta-item"><label>Prepared</label><span>April 3, 2026</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════ CONTACTS ══════════════ -->
+  <div class="contacts-bar">
+    <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:8px;">Meeting Contacts</div></div>
+    <div class="contact-card">
+      <span class="name">Brandon Bost</span>
+      <span class="title">Category Manager — OTR, 3PL &amp; International Logistics (CPET &amp; Fibers)</span>
+      <span class="email">brandon.bost@us.indorama.net</span>
+    </div>
+    <div class="contact-card">
+      <span class="name">Carlos Valdez</span>
+      <span class="title">Regional Supply Chain Execution Leader &amp; Manager</span>
+      <span class="email">carlos.valdez@us.indorama.net</span>
+    </div>
+  </div>
+
+  <!-- ══════════════ BODY ══════════════ -->
+  <div class="body">
+
+    <!-- Company Snapshot -->
+    <div class="section">
+      <div class="section-title">Company Snapshot</div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-label">US Revenue</div>
+          <div class="stat-value">$3.1B</div>
+          <div class="stat-note">FY2024</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Global Revenue</div>
+          <div class="stat-value">$15.4B</div>
+          <div class="stat-note">FY2024</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Global Sites</div>
+          <div class="stat-value">140+</div>
+          <div class="stat-note">35 countries, 6 continents</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Employees</div>
+          <div class="stat-value">~25K</div>
+          <div class="stat-note">Globally</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">US PET Capacity</div>
+          <div class="stat-value">1.3M+</div>
+          <div class="stat-note">MT/year (AL + SC)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Market Position</div>
+          <div class="stat-value">#1</div>
+          <div class="stat-note">World's largest PET producer</div>
+        </div>
+      </div>
+      <p style="line-height:1.6;color:#333;">
+        Indorama Ventures (IVL) is a Bangkok-headquartered, SET-listed global chemicals and fibers conglomerate founded in 1994 by CEO Aloke Lohia. They are the world's largest producer of PET resin — <strong>1 in every 5 PET bottles on earth</strong> is made from their resin. Their US business spans four segments: <strong>Combined PET (CPET)</strong>, <strong>Indovinya</strong> (specialty chemicals/surfactants), <strong>Fibers</strong> (FiberVisions bicomponent fibers + Avgol nonwovens), and <strong>Indovida</strong> (packaging). The US is one of their most strategically important markets, anchored by massive integrated manufacturing clusters in Alabama, Texas, South Carolina, Georgia, and North Carolina.
+      </p>
+    </div>
+
+    <!-- US Distribution Centers & Facilities -->
+    <div class="section">
+      <div class="section-title">US Manufacturing &amp; Distribution Footprint</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Facility / Entity</th>
+            <th>Products</th>
+            <th>Capacity</th>
+            <th>Nearest Port</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Decatur, AL</strong></td>
+            <td>AlphaPet Inc. (Plants 1 &amp; 2)</td>
+            <td>PET Resin (bottle-grade)</td>
+            <td>~932,000 MT/yr</td>
+            <td>Port of Mobile (~110 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Decatur, AL</strong></td>
+            <td>IVXP (formerly BP Amoco)</td>
+            <td>PTA, Paraxylene, NDC</td>
+            <td>~1,000,000 MT/yr PTA</td>
+            <td>Port of Mobile (~110 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Athens, AL</strong></td>
+            <td>Custom Polymers PET / IVSR</td>
+            <td>rPET flake &amp; pellets</td>
+            <td>~70,000 MT/yr</td>
+            <td>Port of Mobile (~130 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Spartanburg, SC</strong></td>
+            <td>Auriga Polymers</td>
+            <td>PET Resin, polyester fiber</td>
+            <td>387K MT PET + 71K MT fiber</td>
+            <td>Port of Charleston (~200 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Covington, GA</strong></td>
+            <td>FiberVisions / Indorama Hygiene</td>
+            <td>Bicomponent polyolefin fibers</td>
+            <td>N/A (multiple lines)</td>
+            <td>Port of Savannah (~90 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Athens, GA</strong></td>
+            <td>FiberVisions Products</td>
+            <td>Polyolefin staple fibers</td>
+            <td>N/A</td>
+            <td>Port of Savannah (~120 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Mocksville, NC</strong></td>
+            <td>Avgol Nonwovens ⭐ NEW</td>
+            <td>Spun-melt nonwoven fabrics</td>
+            <td>70,000 MT/yr (+ new line)</td>
+            <td>Port of Wilmington / Charlotte</td>
+          </tr>
+          <tr>
+            <td><strong>Clear Lake, TX</strong></td>
+            <td>IVOG (Oxide &amp; Glycols)</td>
+            <td>MEG, DEG, TEG, Ethylene Oxide</td>
+            <td>450K MT EO / 355K MT EG</td>
+            <td>Port of Houston (~25 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Port Neches, TX</strong></td>
+            <td>Indorama Ventures Oxides LLC</td>
+            <td>EO, EG, MTBE, PO, olefins</td>
+            <td>~3,000 acre complex</td>
+            <td>Port Arthur / Sabine Pass</td>
+          </tr>
+          <tr>
+            <td><strong>Chocolate Bayou, TX</strong></td>
+            <td>Indovinya (LAB/Surfactants)</td>
+            <td>Linear Alkylbenzene (LAB)</td>
+            <td>Large-scale</td>
+            <td>Port of Houston (~50 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Pasadena, TX</strong></td>
+            <td>Oxiteno USA / Indovinya</td>
+            <td>Ethoxylates, polyethylene glycols</td>
+            <td>Specialty volumes</td>
+            <td>Port of Houston (~15 mi)</td>
+          </tr>
+          <tr>
+            <td><strong>Dallas, TX</strong></td>
+            <td>IVSR (Recycling)</td>
+            <td>Food-grade rPET pellets</td>
+            <td>~92,000 MT/yr</td>
+            <td>Inland (Port of Houston)</td>
+          </tr>
+          <tr>
+            <td><strong>Westlake, LA</strong></td>
+            <td>Indorama Ventures Olefins</td>
+            <td>Ethylene (pipeline only)</td>
+            <td>440,000 MT/yr</td>
+            <td>Port of Lake Charles</td>
+          </tr>
+          <tr>
+            <td><strong>Corpus Christi, TX</strong></td>
+            <td>CCP Joint Venture (PAUSED)</td>
+            <td>PTA + PET (when complete)</td>
+            <td>1.1M MT PET / 1.3M MT PTA</td>
+            <td>Port of Corpus Christi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Imports / Exports -->
+    <div class="section">
+      <div class="section-title">Imports, Exports &amp; Approximate Volumes</div>
+      <div class="two-col">
+        <div>
+          <p style="font-weight:700;color:#003366;margin-bottom:8px;">Key US Imports</p>
+          <table>
+            <thead><tr><th>Material</th><th>Destination</th><th>Origin</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Paraxylene (PX)</strong></td><td>Decatur, AL</td><td>S. Korea, Taiwan, Middle East</td></tr>
+              <tr><td><strong>Purified Terephthalic Acid (PTA)</strong></td><td>Spartanburg, SC</td><td>Asia</td></tr>
+              <tr><td><strong>Monoethylene Glycol (MEG)</strong></td><td>Multiple US PET plants</td><td>Middle East, Asia</td></tr>
+              <tr><td><strong>Polypropylene / Polyolefins</strong></td><td>GA &amp; NC fiber plants</td><td>Global</td></tr>
+              <tr><td><strong>Specialty fiber raw materials</strong></td><td>FiberVisions plants</td><td>Global</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <p style="font-weight:700;color:#003366;margin-bottom:8px;">Key US Exports</p>
+          <table>
+            <thead><tr><th>Product</th><th>Origin</th><th>Destinations</th></tr></thead>
+            <tbody>
+              <tr><td><strong>PET Resin</strong></td><td>Decatur, AL; Spartanburg, SC</td><td>Americas, Global</td></tr>
+              <tr><td><strong>PTA</strong></td><td>Decatur, AL</td><td>External customers worldwide</td></tr>
+              <tr><td><strong>NDC</strong> (only global source)</td><td>Decatur, AL</td><td>Global (LCD panels, tire cord)</td></tr>
+              <tr><td><strong>MTBE</strong></td><td>Port Neches, TX</td><td>Export via marine terminal</td></tr>
+              <tr><td><strong>LAB</strong></td><td>Chocolate Bayou, TX</td><td>Americas</td></tr>
+              <tr><td><strong>rPET Pellets</strong></td><td>Athens, AL; Dallas, TX</td><td>Domestic + Export</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="callout blue" style="margin-top:14px;">
+        <strong>Volume Estimate:</strong> IVL does not publish container volumes publicly. Given ~$3.1B US revenue and large raw material import requirements across 14 US facilities, Eastern Drayage estimates <strong>several hundred to low thousands of TEUs per month</strong> across the US footprint. PET resin alone from Decatur and Spartanburg represents 1.3M+ MT/year of outbound volume.
+      </div>
+    </div>
+
+    <!-- Ports of Interest -->
+    <div class="section">
+      <div class="section-title">Ports of Interest</div>
+      <table>
+        <thead>
+          <tr><th>Port</th><th>Relevance</th><th>IVL Facilities Served</th><th>Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Port of Mobile, AL</strong></td>
+            <td>Paraxylene imports; PET resin exports. Closest deep-water port to Decatur cluster (~110 mi)</td>
+            <td>AlphaPet, IVXP, Custom Polymers PET</td>
+            <td class="priority-high">HIGH</td>
+          </tr>
+          <tr>
+            <td><strong>Port of Houston, TX</strong></td>
+            <td>Gulf Coast hub for chemical feedstocks; confirmed lane in IVL shipping data</td>
+            <td>IVOG, Oxiteno Pasadena, Chocolate Bayou, Port Neches area</td>
+            <td class="priority-high">HIGH</td>
+          </tr>
+          <tr>
+            <td><strong>Port of Charleston, SC</strong></td>
+            <td>PTA/MEG imports; PET resin container exports from Auriga</td>
+            <td>Auriga Polymers Spartanburg (~200 mi)</td>
+            <td class="priority-high">HIGH</td>
+          </tr>
+          <tr>
+            <td><strong>Port of Savannah, GA</strong></td>
+            <td>Fast-growing port; strong Asia lanes; polyolefin imports for fiber plants</td>
+            <td>FiberVisions Covington, FiberVisions Athens</td>
+            <td class="priority-high">HIGH</td>
+          </tr>
+          <tr>
+            <td><strong>Port Arthur / Sabine Pass, TX</strong></td>
+            <td>Directly adjacent to Port Neches 3,000-acre complex; bulk chemical marine terminals</td>
+            <td>Indorama Ventures Oxides (Port Neches)</td>
+            <td class="priority-medium">MEDIUM</td>
+          </tr>
+          <tr>
+            <td><strong>Port of Wilmington, NC / Charlotte</strong></td>
+            <td>Raw material imports for new Avgol nonwovens line (PP/polyolefins)</td>
+            <td>Avgol Mocksville, NC (brand new $100M line)</td>
+            <td class="priority-medium">MEDIUM</td>
+          </tr>
+          <tr>
+            <td><strong>Port of Corpus Christi, TX</strong></td>
+            <td>Future: If CCP JV plant completes — would be transformational (1.1M MT PET + 1.3M MT PTA)</td>
+            <td>Corpus Christi Polymers JV (currently paused)</td>
+            <td class="priority-medium">WATCH</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Methods of Import/Export -->
+    <div class="section">
+      <div class="section-title">Methods of Import &amp; Export</div>
+      <div class="two-col">
+        <div>
+          <ul class="bullets">
+            <li><strong>Ocean FCL (40' Dry):</strong> Primary method for PET resin pellets (supersacks/bags), PTA, polyolefin resins, fiber raw materials. Main trade lanes: Houston ↔ Antwerp, Singapore, Kaohsiung, Rotterdam.</li>
+            <li><strong>Bulk Liquid Chemical Tankers:</strong> MTBE, MEG, EO, LAB at Port Neches and Clear Lake TX. Moves via marine terminals — not container drayage.</li>
+            <li><strong>Flexitanks:</strong> Used for glycols and liquid chemical container shipments where applicable.</li>
+            <li><strong>Rail (NS / CSX):</strong> Alabama facilities heavily served by rail for bulk resin. PET shipped in hopper cars. Important for Decatur, AL cluster.</li>
+            <li><strong>OTR Trucking:</strong> Regional distribution of PET resin to beverage/packaging customers. Brandon Bost owns OTR + 3PL category.</li>
+            <li><strong>Pipeline:</strong> Ethylene from Westlake, LA to Clear Lake TX and Port Neches TX. No container drayage relevance.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="callout green">
+            <strong>Drayage Sweet Spot:</strong> Container moves from port to plant gate — paraxylene and PTA imports into Mobile → Decatur; MEG and polyolefin imports via Savannah → GA fiber plants; and PP imports via Wilmington/Charlotte → Mocksville, NC (Avgol).
+          </div>
+          <div class="callout blue" style="margin-top:10px;">
+            <strong>Technology:</strong> IVL runs SAP S/4HANA ERP with SAP Taulia supply chain finance (launched Aug 2024). They are a sophisticated logistics buyer — expect data-driven conversations about on-time performance, exceptions, and TMS integration capability.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Major News -->
+    <div class="section">
+      <div class="section-title">Major News &amp; Strategic Context (Last 18 Months)</div>
+
+      <div class="callout orange">
+        <strong>IVL 2.0 → SOAR Restructuring (2025–2028):</strong> IVL declared 2025 a "year of reset" after EBITDA fell ~35% YoY amid global petrochemical overcapacity, destocking, and volatile crude prices. They announced IVL 2.0 in March 2025 — shifting from M&A growth to cost leadership and portfolio optimization. $200M+ in fixed cost savings targeted; sites rationalized in Portugal, Netherlands, Australia, Canada. New 3-year plan (SOAR 2026–2028) targets doubling EBITDA by 2028. <strong>Translation: Every vendor — including drayage — is under cost scrutiny. But reliable, multi-lane partners who reduce friction are highly valuable right now.</strong>
+      </div>
+
+      <div class="callout green" style="margin-top:10px;">
+        <strong>US PET Tariffs Through October 2026:</strong> US reciprocal tariffs at 20% on PET imports protect domestic IVL plants from cheap Asian competition. IVL estimates $20–25M/year positive impact. US plant utilization is likely increasing — meaning <strong>more container moves at US ports</strong>.
+      </div>
+
+      <div class="callout blue" style="margin-top:10px;">
+        <strong>Avgol Mocksville, NC — $100M New Line (Feb 2025):</strong> Brand new high-speed spunbond nonwoven production line opened February 17, 2025. "Made in America" positioning. Polypropylene raw materials need to move in via container. <strong>Their drayage relationships at this facility may still be forming — this is a fresh opportunity.</strong>
+      </div>
+
+      <div class="callout blue" style="margin-top:10px;">
+        <strong>Planned Spin-offs — Indovinya &amp; Indovida:</strong> IVL is carving out its specialty chemicals (Indovinya — TX plants) and packaging (Indovida) businesses as independent entities with their own IPOs. Logistics contracts may be up for renegotiation as these become standalone companies. <strong>A transition window for new drayage relationships.</strong>
+      </div>
+
+      <div class="callout red" style="margin-top:10px;">
+        <strong>Corpus Christi Polymers (CCP) — Still Paused:</strong> The planned 1.1M MT/year PET + 1.3M MT/year PTA plant in Corpus Christi (JV with Alpek and Far Eastern) has been paused since Sept 2023 due to cost inflation and high interest rates. Partners are evaluating phased completion. <strong>When/if it resumes, this would be a transformational drayage opportunity at Port of Corpus Christi.</strong>
+      </div>
+
+      <table style="margin-top:14px;">
+        <thead><tr><th>Date</th><th>Event</th><th>Relevance to Eastern Drayage</th></tr></thead>
+        <tbody>
+          <tr><td>Feb 2025</td><td>$100M Avgol nonwovens line opens, Mocksville, NC</td><td>New facility — fresh drayage relationship opportunity</td></tr>
+          <tr><td>Mar 2025</td><td>IVL 2.0 announced; $200M cost reduction program</td><td>Cost pressure = need for efficient, reliable carriers</td></tr>
+          <tr><td>2025 ongoing</td><td>Indovinya spin-off / IPO preparation</td><td>TX plants may re-bid logistics contracts as independent entity</td></tr>
+          <tr><td>FY2024</td><td>US PET tariffs at 20% through Oct 2026</td><td>Higher US plant utilization = more port container moves</td></tr>
+          <tr><td>Aug 2024</td><td>SAP Taulia supply chain finance platform live</td><td>IVL is investing in supply chain tech — expect data-capable partners</td></tr>
+          <tr><td>Aug 2025</td><td>150 billion bottles recycled milestone</td><td>Strong ESG narrative — align on sustainability/compliance</td></tr>
+          <tr><td>Sept 2023–present</td><td>CCP Corpus Christi construction paused</td><td>Monitor for restart — massive future opportunity at Port of Corpus Christi</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Opportunities -->
+    <div class="section">
+      <div class="section-title">Drayage Opportunities — Eastern Drayage</div>
+      <table class="opp-table">
+        <thead>
+          <tr><th>Lane</th><th>Port</th><th>Commodity</th><th>IVL Facility</th><th>Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Port of Mobile → Decatur, AL</strong></td>
+            <td>Mobile, AL</td>
+            <td>Paraxylene imports; PET resin exports</td>
+            <td>AlphaPet + IVXP (~2M MT/yr combined capacity)</td>
+            <td class="priority-high">HIGH</td>
+          </tr>
+          <tr>
+            <td><strong>Port of Savannah → Covington/Athens, GA</strong></td>
+            <td>Savannah, GA</td>
+            <td>Polyolefin / polypropylene imports</td>
+            <td>FiberVisions bicomponent fiber plants</td>
+            <td class="priority-high">HIGH</td>
+          </tr>
+          <tr>
+            <td><strong>Port of Charleston → Spartanburg, SC</strong></td>
+            <td>Charleston, SC</td>
+            <td>PTA/MEG imports; PET resin exports</td>
+            <td>Auriga Polymers (~458K MT/yr)</td>
+            <td class="priority-high">HIGH</td>
+          </tr>
+          <tr>
+            <td><strong>Port of Houston → TX chemical plants</strong></td>
+            <td>Houston, TX</td>
+            <td>Chemical feedstocks (specialty)</td>
+            <td>Pasadena, Chocolate Bayou, Dayton TX</td>
+            <td class="priority-medium">MEDIUM</td>
+          </tr>
+          <tr>
+            <td><strong>Wilmington/Charlotte → Mocksville, NC</strong></td>
+            <td>Wilmington, NC</td>
+            <td>Polypropylene imports for new line</td>
+            <td>Avgol Nonwovens (brand new $100M line)</td>
+            <td class="priority-high">HIGH — Fresh</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Who You're Meeting -->
+    <div class="section">
+      <div class="section-title">Know Your Contacts</div>
+      <div class="two-col">
+        <div class="callout blue">
+          <strong>Brandon Bost — Category Manager, OTR/3PL/International Logistics</strong><br/><br/>
+          Brandon owns freight procurement for CPET and Fibers — the two largest US segments. His title explicitly covers OTR, 3PL, and international logistics, meaning he is thinking about port-to-plant container moves as part of his mandate. He is a <strong>decision-maker or key influencer</strong> on drayage carrier selection. Lead with lane coverage, cost competitiveness, and reliability data. He will want to know your footprint at Mobile, Charleston, Savannah, and Houston.
+        </div>
+        <div class="callout blue">
+          <strong>Carlos Valdez — Regional Supply Chain Execution Leader</strong><br/><br/>
+          Carlos manages day-to-day execution — on-time performance, routing, scheduling, carrier scorecards. He previously managed Logistics Purchasing at Celanese (major chemical company) — he knows how to evaluate carriers. He will care about <strong>execution quality: on-time %, damage-free, communication, driver professionalism, TMS/EDI integration</strong>. Bring performance metrics and reference lanes. His engineering background (IPN + Tecnológico de Monterrey) means he respects data-driven conversations.
+        </div>
+      </div>
+    </div>
+
+    <!-- Talking Points -->
+    <div class="section">
+      <div class="section-title">Recommended Talking Points for Harry Hatch</div>
+      <ul class="bullets">
+        <li><strong>Lead with the Alabama cluster:</strong> "We cover Port of Mobile and the run up to Decatur — your largest US manufacturing cluster. Who is handling that lane today?" That's 2M+ MT/year of combined capacity at one address.</li>
+        <li><strong>Mocksville, NC is fresh:</strong> "We saw you just opened a new $100M line at Avgol in Mocksville. We'd love to support the polypropylene inbound — are you still establishing carrier relationships there?"</li>
+        <li><strong>US tariff tailwind:</strong> "With PET tariffs protecting your domestic capacity through October 2026, your US plants are running harder. That's more port moves. We can help you scale without adding carrier friction."</li>
+        <li><strong>Restructuring = opportunity:</strong> "As Indovinya and Indovida spin out as independent entities, are their logistics contracts being re-evaluated? We'd welcome the conversation at both levels."</li>
+        <li><strong>Multi-lane consolidation:</strong> "We operate across Mobile, Charleston, Savannah, and Houston — your four most active import/export ports. A single provider relationship simplifies your vendor management and gives you consolidated reporting."</li>
+        <li><strong>Data-ready:</strong> "We integrate with SAP-based TMS environments — happy to discuss how we'd feed performance data into your system." (IVL runs SAP S/4HANA)</li>
+        <li><strong>Corpus Christi — plant the flag:</strong> "We're watching Corpus Christi Polymers with interest. When that project restarts, the Port of Corpus Christi will need a strong drayage partner. We want to be the first call."</li>
+      </ul>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <div class="footer">
+    <strong>Eastern Drayage</strong> &nbsp;|&nbsp; Prepared April 3, 2026 &nbsp;|&nbsp; Meeting: April 9, 2026 &nbsp;|&nbsp; Confidential — Internal Use Only
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
